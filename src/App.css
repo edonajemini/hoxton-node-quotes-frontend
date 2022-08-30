@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+h2{
+  font-size: 50px;
+  font-weight: 300;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.quotes{
+  display: grid;
+  border: thin solid gainsboro;
+  margin: 40px 200px;
+}
+h3 {
+  font-weight: 500;
+  text-decoration: underline;
+}
+p{
+  font-style: italic;
+  color: rgb(80, 80, 80);
+}

@@ -16,11 +16,12 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <h2>Famous Quotes</h2>
       {
             quotes.map(quote => (
               <div className='quotes'>
-                  <p>{quote.author}-</p>
-                    <h3>{quote.quote}</h3>
+                  <h3>{quote.author}-</h3>
+                    <p>"{quote.quote}"</p>
               </div>
             ))}
     </div>
