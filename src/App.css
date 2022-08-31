@@ -29,6 +29,43 @@ h2{
   height: 100px;
   width: 100px;
 }
+form{
+  padding: 10px;
+  margin: 0 350px;
+  background-color: rgba(220, 220, 220, 0.209);
+}
+.name-lastname{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap:5px;
+}
+.name-lastname input{
+  width: 200px;
+  height: 20px;
+}
+.image-age{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap:5px;
+  margin-top: 5px;
+}
+.image-age input{
+  width: 200px;
+  height: 20px;
+}
+#quote {
+  width: 500px;
+  margin-top: 10px;
+}
+.post-btn{
+  display: inline;
+  color: black;
+  justify-content: center;
+  margin-left: 10px;
+  width: 100px;
+}
 h4 {
   font-weight: 400;
   text-decoration: underline;

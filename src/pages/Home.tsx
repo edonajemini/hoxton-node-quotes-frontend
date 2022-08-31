@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
+
 type Quotes = {
     id: number,
     name:string,
     lastname:string,
     age:string,
-    Image:string,
+    image:string,
     quote: string
   }
 export function Home(){
@@ -18,6 +19,50 @@ export function Home(){
     return(
         <div>
       <h2>Famous Quotes</h2>
+      <h1>Add New quote</h1>
+      <form onSubmit={event => 
+           {event.preventDefault()
+            const quotescopy = structuredClone(quotes)
+        
+              let newquote = {
+                name: event.target.name.value,
+                lastname: event.target.lastname.value,
+                image: event.target.image.value,
+                age: event.target.age.value,
+                quote: event.target.quote.value
+              }
+              quotescopy.push(newquote);
+              setQuotes(quotescopy)
+
+              event.target.reset();
+            }}>
+        <div className='name-lastname'>
+        <input id='name' name='name' type='text' placeholder="Author's Name?" required></input>
+        <input id='lastname' name='lastname' type='text' placeholder="Author's Lastname?" required></input>
+        </div>
+        <div className='image-age'>
+        <input type="url" name='image' id='image' placeholder="Author's Picture?" required></input>
+        <input id='age' name='age' type='text' placeholder="Author's Age?" required></input>
+        </div>
+        <textarea id='quote' name='qoute' placeholder="Quote?" rows={3}  required></textarea>
+        <button className='post-btn'onClick={(event)=>{
+    fetch("http://localhost:4000/quotes",{
+      method: 'POST',
+      headers: {
+        'content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: document.getElementById("name")?.value,
+        lastname: document.getElementById("lastname")?.value,
+        image: document.getElementById("image")?.value,
+        age: document.getElementById("age")?.value,
+        quote: document.getElementById("quote")?.value
+      }
+      )
+    }) .then(resp => resp.json())
+    .then(quotesfromserver => setQuotes([...quotes, quotesfromserver]))
+  }}> POST</button>
+      </form>
       {
             quotes.map(quote => (
               <div className='quotes'>
@@ -26,10 +71,11 @@ export function Home(){
                   <h3>{quote.lastname}-</h3>
                   </div>
                   <div className='image'>
-                  <img src={quote.Image} width="80px" />
+                  <img src={quote.image} width="80px" />
                   </div>
                     <p>"{quote.quote}"</p>
                     <h4>{quote.age}</h4>
+                    
               </div>
             ))}
     </div>
