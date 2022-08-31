@@ -11,9 +11,30 @@ h2{
   border: thin solid gainsboro;
   margin: 40px 200px;
 }
+.name{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 5px;
+}
+.image{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 15px;
+  margin-left: 10px;
+}
+.image img{
+  border-radius: 5px;
+  height: 100px;
+  width: 100px;
+}
+h4 {
+  font-weight: 400;
+  text-decoration: underline;
+}
 h3 {
   font-weight: 500;
-  text-decoration: underline;
 }
 p{
   font-style: italic;

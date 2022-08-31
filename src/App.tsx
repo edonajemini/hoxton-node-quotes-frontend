@@ -3,7 +3,10 @@ import './App.css'
 
 type Quotes = {
   id: number,
-  author:string,
+  name:string,
+  lastname:string,
+  age:string,
+  Image:string,
   quote: string
 }
 
@@ -20,8 +23,15 @@ function App() {
       {
             quotes.map(quote => (
               <div className='quotes'>
-                  <h3>{quote.author}-</h3>
+                <div className='name'>
+                  <h3>{quote.name}</h3>
+                  <h3>{quote.lastname}-</h3>
+                  </div>
+                  <div className='image'>
+                  <img src={quote.Image} width="80px" />
+                  </div>
                     <p>"{quote.quote}"</p>
+                    <h4>{quote.age}</h4>
               </div>
             ))}
     </div>
