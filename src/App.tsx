@@ -9,7 +9,7 @@ type Quotes = {
   name:string,
   lastname:string,
   age:string,
-  Image:string,
+  image:string,
   quote: string
 }
 

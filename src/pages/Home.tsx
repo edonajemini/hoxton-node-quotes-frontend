@@ -25,11 +25,11 @@ export function Home(){
             const quotescopy = structuredClone(quotes)
         
               let newquote = {
-                name: event.target.name.value,
-                lastname: event.target.lastname.value,
-                image: event.target.image.value,
-                age: event.target.age.value,
-                quote: event.target.quote.value
+                quote: event.target.quote.value,
+                authors: event.target.authors.value
+              }
+              let authors = {
+                
               }
               quotescopy.push(newquote);
               setQuotes(quotescopy)
@@ -46,7 +46,7 @@ export function Home(){
         </div>
         <textarea id='quote' name='qoute' placeholder="Quote?" rows={3}  required></textarea>
         <button className='post-btn'onClick={(event)=>{
-    fetch("http://localhost:4000/quotes",{
+    fetch("http://localhost:4000/authors",{
       method: 'POST',
       headers: {
         'content-Type': 'application/json'
